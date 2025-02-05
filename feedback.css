@@ -1,0 +1,95 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .feedback-container {
+    background-color: #e6f7ff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  h2 {
+    color: #0077b6;
+    margin-bottom: 20px;
+  }
+  
+  .star-rating {
+    margin-bottom: 20px;
+  }
+  
+  .star-rating label {
+    font-size: 18px;
+    color: #333;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .stars {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+  }
+  
+  .stars span {
+    font-size: 30px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .stars span:hover,
+  .stars span.active {
+    color: #0077b6;
+  }
+  
+  .feedback-text {
+    margin-bottom: 20px;
+  }
+  
+  .feedback-text textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #0077b6;
+    border-radius: 5px;
+    resize: none;
+    height: 80px;
+    font-size: 14px;
+  }
+  
+  button {
+    background-color: #0077b6;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #005f87;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  #thankYouMessage {
+    margin-top: 20px;
+    color: #0077b6;
+    font-size: 16px;
+  }
+  

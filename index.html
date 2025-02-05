@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Straight To Your Dream Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Gradient animations */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            background: linear-gradient(45deg, #2193b0, #6dd5ed);
+            padding: 1.2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .logo-container {
+        display: flex;
+        align-items: center;
+
+        }
+
+        .logo-img {
+        width: 60px; 
+        height: 60px;
+        margin-right: 1rem; 
+        border-radius: 5px; 
+}
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Up-Arrow and Down-Arrow*/
+    .scroll-button {
+    position: fixed;
+    right: 20px;
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    background-color: rgba(19, 27, 145, 0.87);
+    box-shadow: 0 4px 8px rgba(19, 27, 145, 0.87);
+    z-index: 1000; 
+    }
+
+    #scroll-down {
+        bottom: 20px;
+    }
+
+    #scroll-up {
+        bottom: 80px;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+/* Button hover effect */
+    .scroll-button:hover {
+        background-color: rgb(93, 198, 233);
+        transform: scale(1.1);
+        transition: all 0.3s ease;
+    }
+
+        /* Hero Section */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .hero {
+            height: 84vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .hero .slide.active {
+            opacity: 1;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+            background: rgba(90, 198, 231, 0.6);
+            border-radius: 20px;
+            backdrop-filter: blur(7px);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: hsla(0, 0%, 3%, 0.767);
+        }
+
+        .hero-content p {
+            font-size: 25px;
+        }
+
+        /* For smoother transitions */
+        @keyframes fade {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    
+        /* Module Cards */
+        .modules {
+            padding: 4rem 2rem;
+            background: linear-gradient(45deg, #f6f9fc, #f1f4f8);
+        }
+
+        .module-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .module-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .module-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .module-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #2193b0;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(45deg, #2193b0, #6dd5ed);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Property Listings */
+        .listings {
+            padding: 4rem 2rem;
+            background: #f6f9fc;
+        }
+
+        .property-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .property-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .property-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .property-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .property-info {
+            padding: 1.5rem;
+        }
+
+        .price {
+            color: #2193b0;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Call to Action */
+        .cta {
+            background: linear-gradient(45deg, #2193b0, #6dd5ed);
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: white;
+            color: #2193b0;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-top: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1);
+        }
+
+        .cta {
+            background: linear-gradient(45deg, #2193b0, #6dd5ed);
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: white;
+            color: #2193b0;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-top: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1);
+        }
+        
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Utilities */
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2193b0;
+            font-size: 2.5rem;
+        }
+
+        .text-gradient {
+            background: linear-gradient(45deg, #2193b0, #6dd5ed);
+
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="Logo.jpg" alt="Logo" class="logo-img" >
+        </div>
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Add My Property</a>
+            <a href="#">Notifications</a>
+            <a href="login.html">Mark an Entry</a>
+            
+        </div>
+    </nav>
+
+    <!--Up and Down arrow-->
+    <button id="scroll-down" class="scroll-button"> ⬇ </button>
+    <button id="scroll-up" class="scroll-button hidden"> ⬆ </button>
+
+    <script>
+   // Select buttons
+const scrollDownBtn = document.getElementById("scroll-down");
+const scrollUpBtn = document.getElementById("scroll-up");
+
+// Event listener for scroll down button
+scrollDownBtn.addEventListener("click", () => {
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth",
+    });
+});
+
+// Event listener for scroll up button
+scrollUpBtn.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
+});
+
+// Show/hide buttons based on scroll position
+window.addEventListener("scroll", () => {
+    const scrolledFromTop = window.scrollY;
+    const scrollableHeight = document.body.scrollHeight - window.innerHeight;
+
+    if (scrolledFromTop >= scrollableHeight) {
+        scrollDownBtn.classList.add("hidden");
+        scrollUpBtn.classList.remove("hidden");
+    } else if (scrolledFromTop === 0) {
+        scrollDownBtn.classList.remove("hidden");
+        scrollUpBtn.classList.add("hidden");
+    } else {
+        scrollDownBtn.classList.remove("hidden");
+        scrollUpBtn.classList.remove("hidden");
+    }
+});
+
+
+    </script>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Slideshow Backgrounds -->
+        <div class="slide" style="background-image: url('Background\ image\ \(2\).jpg');"></div>
+        <div class="slide" style="background-image: url('background\ image.jpg');"></div>
+        <div class="slide" style="background-image: url('background\ img.jpg');"></div>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <h1>Straight To Your Dream Home</h1>
+            <p>Anywhere , Anytime</p>
+            <a href="#" class="cta-button">Get Started Today</a>
+        </div>
+    </section>
+
+    <script>
+        // JavaScript for Slideshow
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+        const slideInterval = 5000; // 5 seconds
+
+        function changeSlide() {
+            // Remove 'active' class from the current slide
+            slides[currentSlide].classList.remove('active');
+
+            // Move to the next slide
+            currentSlide = (currentSlide + 1) % slides.length;
+
+            // Add 'active' class to the new slide
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Initialize the first slide
+        slides[currentSlide].classList.add('active');
+
+        // Change slides at regular intervals
+        setInterval(changeSlide, slideInterval);
+    </script>
+
+    <!-- Modules Section -->
+    <section class="modules">
+        <h2 class="section-title">Our Modules</h2>
+        <div class="module-container">
+            <div class="module-card">
+                <div class="module-icon">👤</div>
+                <a href=""></a>
+                <h3>Admin Module</h3>
+            </div>
+            <div class="module-card">
+                <div class="module-icon">🏠</div>
+                <h3>Tenant Module</h3>
+            </div>
+            <div class="module-card">
+                <div class="module-icon">🔑</div>
+                <h3>Lessee Module</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="section-title">Key Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Advanced Search</h3>
+            </div>
+            <div class="feature-card">
+                <h3>Notifications</h3>
+            </div>
+            <div class="feature-card">
+                <h3>Feedback</h3>
+            </div>
+            <div class="feature-card">
+                <h3>Favourites List</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Properties -->
+    <section class="listings">
+        <h2 class="section-title">Featured Properties</h2>
+        <div class="property-grid">
+            <div class="property-card">
+                <img src="Luxury Apartment.jpg" alt="Luxury Apartment" class="property-image">
+                <div class="property-info"><br>
+                    <h3>Luxury Apartment</h3><br>
+                    <p>Downtown Area</p><br>
+                    <div class="price">₹45,000/month</div>
+                </div>
+            </div>
+            <div class="property-card">
+                <img src="Modern Villa Apartment.jpg" alt="Modern Villa" class="property-image">
+                <div class="property-info"><br>
+                    <h3>Modern Villa</h3><br>
+                    <p>Suburban Paradise</p><br>
+                    <div class="price">₹75,000/month</div>
+                </div>
+            </div>
+            <div class="property-card">
+                <img src="Garden Apartment.jpg" alt="Garden Apartment" class="property-image">
+                <div class="property-info">
+                    <h3>Garden Apartment</h3><br>
+                    <p>City Center</p><br>
+                    <div class="price">₹20,000/month</div>
+                </div>
+            </div>
+        </div>
+        <a href="home.html" class="cta-button">Show More</a>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <h2>Ready to Find Your Dream Home?</h2>
+        <p>Join Us for Amazing Apartments</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <h3>Straight To Your Dream Home</h3>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+        <p>&copy; Straight To Your Dream Home. All rights reserved.</p>
+    </footer>
+</body>
+</html>

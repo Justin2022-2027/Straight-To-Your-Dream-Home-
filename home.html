@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        :root {
+            --primary-color: #2580d6;
+            --light-blue:rgb(54, 133, 189);
+            --hover-blue: #1976D2;
+            --text-color: #333;
+        }
+        
+        .top-section {
+            width: 100%;
+            background-color: #2196F3;
+            padding: 30px 0;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .main-heading h1 {
+            color: white;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .paragraph {
+            text-align: center;
+        }
+
+        .paragraph p {
+            color: white;
+            font-size: 20px;
+            font-style: italic;
+        }
+
+        
+        body {
+            display: flex;
+            background-color:white;
+            padding: 20px;
+        }
+
+        .side{
+            width:25%;
+            padding: 15px;
+            background-color:rgb(48, 167, 214)
+        }
+
+        .filter-container {
+            max-width: 600px;
+            margin: 0 auto;
+            align-items: left;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background-color: var(--primary-color);
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .back-button {
+            font-size: 24px;
+            margin-right: 20px;
+            cursor: pointer;
+            align-items: left;
+            color: white;
+
+        }
+
+        .section {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .option-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .option-button {
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            background: white;
+            transition: all 0.3s;
+        }
+
+        .option-button.selected {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .option-button:hover {
+            background-color: var(--light-blue);
+        }
+
+        .checkbox-group {
+            margin: 10px 0;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .checkbox-label:hover {
+            background-color: var(--light-blue);
+        }
+
+        .price-range {
+            margin: 20px 0;
+        }
+
+        .price-inputs {
+            display: grid;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .price-input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .range-slider {
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .enable-button {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary-color);
+            display: block;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 120px;
+            transition: 0.3s;
+        }
+
+        .enable-button:hover {
+            background-color: var(--hover-blue);
+        }
+
+        .content {
+            flex: 1;
+            padding: 15px;
+        }
+
+        .amenities-grid {
+            display: grid;
+            padding: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .back-button {
+            display: flex;
+            padding: 10px 10px;
+            font-size: 16px;
+            color: white;
+            background-color: #102cc9;
+            border: none;
+            border-radius: 4px;
+            justify-content: flex-start;
+            cursor: pointer;
+            position: absolute;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+
+        .amenity-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .amenity-item:hover {
+            background-color: var(--light-blue);
+        }
+
+        .date-input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .house-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .house-item {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 130px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .house-item:hover {
+            transform: scale(1.05);
+        }
+
+        .house-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .house-details {
+            padding: 15px;
+        }
+
+        .house-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .house-description {
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-section">
+        <div class="main-heading">
+            <h1><b>Welcome to the World of Properties</b></h1>
+        </div>
+        <button class="back-button" onclick="goBack()">  Back</button>
+        <div class="paragraph">
+            <p>Choose Your Dream Home</p>
+        </div>
+    </div>
+    <div class="content">
+        <br><br>
+        <div class="house-list" id="houseList">
+            <div class="house-item" data-type="Apartment" data-bhk="2 BHK">
+                <img src="pexels-binyaminmellish-1396122.jpg" alt="House" class="house-image">
+                <div class="house-details">
+                    <div class="house-title">Modern Apartment</div>
+                    <div class="house-description">2 BHK apartment with all amenities.</div>
+                </div>
+            </div>
+            <div class="house-item" data-type="Villa" data-bhk="3 BHK">
+                <img src="pexels-pixabay-259588.jpg" alt="House" class="house-image">
+                <div class="house-details">
+                    <div class="house-title">Luxury Villa</div>
+                    <div class="house-description">Spacious 3 BHK villa with garden.</div>
+                </div>
+            </div>
+            <div class="house-item" data-type="Independent House" data-bhk="1 BHK">
+                <img src="pexels-laole-2362030.jpg" alt="House" class="house-image">
+                <div class="house-details">
+                    <div class="house-title">Cozy House</div>
+                    <div class="house-description">1 BHK independent house in a quiet area.</div>
+                </div>
+            </div>
+            <div class="house-item" data-type="Villa" data-bhk="3 BHK">
+                <img src="pexels-pixabay-259588.jpg" alt="House" class="house-image">
+                <div class="house-details">
+                    <div class="house-title">Luxury Villa</div>
+                    <div class="house-description">Spacious 3 BHK villa with garden.</div>
+                </div>
+            </div>
+            <div class="house-item" data-type="Villa" data-bhk="3 BHK">
+                <img src="pexels-pixabay-259588.jpg" alt="House" class="house-image">
+                <div class="house-details">
+                    <div class="house-title">Luxury Villa</div>
+                    <div class="house-description">Spacious 3 BHK villa with garden.</div>
+                </div>
+            </div>
+            <div class="house-item" data-type="Villa" data-bhk="3 BHK">
+                <img src="pexels-pixabay-259588.jpg" alt="House" class="house-image">
+                <div class="house-details">
+                    <div class="house-title">Luxury Villa</div>
+                    <div class="house-description">Spacious 3 BHK villa with garden.</div>
+                </div>
+            </div>
+            <div class="house-item" data-type="Villa" data-bhk="3 BHK">
+                <img src="pexels-pixabay-259588.jpg" alt="House" class="house-image">
+                <div class="house-details">
+                    <div class="house-title">Luxury Villa</div>
+                    <div class="house-description">Spacious 3 BHK villa with garden.</div>
+                </div>
+            </div>
+            <div class="house-item" data-type="Villa" data-bhk="3 BHK">
+                <img src="pexels-pixabay-259588.jpg" alt="House" class="house-image">
+                <div class="house-details">
+                    <div class="house-title">Luxury Villa</div>
+                    <div class="house-description">Spacious 3 BHK villa with garden.</div>
+                </div>
+            </div>
+            <div class="house-item" data-type="Villa" data-bhk="3 BHK">
+                <img src="pexels-pixabay-259588.jpg" alt="House" class="house-image">
+                <div class="house-details">
+                    <div class="house-title">Luxury Villa</div>
+                    <div class="house-description">Spacious 3 BHK villa with garden.</div>
+                </div>
+            </div>
+            <div class="house-item" data-type="Villa" data-bhk="3 BHK">
+                <img src="pexels-pixabay-259588.jpg" alt="House" class="house-image">
+                <div class="house-details">
+                    <div class="house-title">Luxury Villa</div>
+                    <div class="house-description">Spacious 3 BHK villa with garden.</div>
+                </div>
+            </div>
+            <div class="house-item" data-type="Villa" data-bhk="3 BHK">
+                <img src="pexels-pixabay-259588.jpg" alt="House" class="house-image">
+                <div class="house-details">
+                    <div class="house-title">Luxury Villa</div>
+                    <div class="house-description">Spacious 3 BHK villa with garden.</div>
+                </div>
+            </div>
+            <div class="house-item" data-type="Villa" data-bhk="3 BHK">
+                <img src="pexels-pixabay-259588.jpg" alt="House" class="house-image">
+                <div class="house-details">
+                    <div class="house-title">Luxury Villa</div>
+                    <div class="house-description">Spacious 3 BHK villa with garden.</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="side">
+    <div class="header">
+
+        <a href="index.html" span class="back-button"> ← </a>
+        </span>
+        <h1>Filters</h1>
+    </div>
+
+    <div class="filter-container">
+        <!-- Property Type Section -->
+        <div class="section">
+            <div class="section-title">PROPERTY TYPE</div>
+            <div class="checkbox-group">
+                <label class="checkbox-label">
+                    <input type="checkbox"> Apartment
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox"> Independent House
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox"> Villa
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox"> Builder Floor
+                </label>
+            </div>
+        </div>
+
+        <!-- Price Range Section -->
+        <div class="section">
+            <div class="section-title">PRICE RANGE</div>
+            <div class="price-inputs">
+                <input type="number" class="price-input" placeholder="Min Price (₹)" min="0" step="1000">
+                <input type="number" class="price-input" placeholder="Max Price (₹)" min="0" step="1000">
+            </div>
+            <input type="range" class="range-slider" min="0" max="100000" step="1000">
+        </div>
+
+        <!-- BHK Configuration -->
+        <div class="section">
+            <div class="section-title">BHK TYPE</div>
+            <div class="option-group">
+                <button class="option-button">1 BHK</button>
+                <button class="option-button">2 BHK</button>
+                <button class="option-button">3 BHK</button>
+                <button class="option-button">4+ BHK</button>
+            </div>
+        </div>
+
+        <!-- Amenities Section -->
+        <div class="section">
+            <div class="section-title">AMENITIES</div>
+            <div class="amenities-grid">
+                <label class="amenity-item">
+                    <input type="checkbox">
+                    <span>Lift</span>
+                </label>
+                <label class="amenity-item">
+                    <input type="checkbox">
+                    <span>Car Parking</span>
+                </label>
+                <label class="amenity-item">
+                    <input type="checkbox">
+                    <span>Power Backup</span>
+                </label>
+                <label class="amenity-item">
+                    <input type="checkbox">
+                    <span>Security</span>
+                </label>
+                <label class="amenity-item">
+                    <input type="checkbox">
+                    <span>Swimming Pool</span>
+                </label>
+                <label class="amenity-item">
+                    <input type="checkbox">
+                    <span>Gym</span>
+                </label>
+                <label class="amenity-item">
+                    <input type="checkbox">
+                    <span>Park</span>
+                </label>
+                <label class="amenity-item">
+                    <input type="checkbox">
+                    <span>Club House</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Furnishing Status -->
+        <div class="section">
+            <div class="section-title">FURNISHING STATUS</div>
+            <div class="option-group">
+                <button class="option-button">Fully Furnished</button>
+                <button class="option-button">Semi Furnished</button>
+                <button class="option-button">Unfurnished</button>
+            </div>
+        </div>
+
+        <!-- Availability -->
+        <div class="section">
+            <div class="section-title">AVAILABILITY</div>
+            <input type="date" class="date-input" placeholder="Select Move-in Date">
+        </div>
+
+        <button class="enable-button">APPLY FILTERS</button>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+        // Toggle selection for option buttons
+        document.querySelectorAll('.option-button').forEach(button => {
+            button.addEventListener('click', () => {
+                // If in a group, deselect siblings
+                const siblings = button.parentElement.querySelectorAll('.option-button');
+                if (siblings.length > 1) {
+                    siblings.forEach(sib => sib.classList.remove('selected'));
+                }
+                button.classList.toggle('selected');
+            });
+        });
+
+        // Price range slider
+        const rangeSlider = document.querySelector('.range-slider');
+        const minPriceInput = document.querySelectorAll('.price-input')[0];
+        const maxPriceInput = document.querySelectorAll('.price-input')[1];
+        const filters = document.querySelectorAll('.filter');
+        const houseList = document.getElementById('houseList');
+        const houses = Array.from(houseList.children);
+
+        filters.forEach(filter => {
+            filter.addEventListener('click', () => {
+                const filterValue = filter.dataset.filter;
+
+                if (filter.tagName === 'BUTTON') {
+                    filter.classList.toggle('selected');
+                } else if (filter.tagName === 'INPUT') {
+                    filter.checked = !filter.checked;
+                }
+
+                const activeFilters = Array.from(filters)
+                    .filter(f => f.classList.contains('selected') || f.checked)
+                    .map(f => f.dataset.filter);
+
+                houses.forEach(house => {
+                    const houseFilters = [
+                        house.dataset.type,
+                        house.dataset.bhk
+                    ];
+
+                    if (activeFilters.every(filter => houseFilters.includes(filter))) {
+                        house.style.display = 'block';
+                    } else {
+                        house.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        minPriceInput.addEventListener('input', function() {
+            console.log('Min Price:', this.value);
+        });
+
+        maxPriceInput.addEventListener('input', function() {
+            console.log('Max Price:', this.value);
+        });
+
+        // Handle enable filters button
+        document.querySelector('.enable-button').addEventListener('click', () => {
+            const filters = {
+                propertyTypes: Array.from(document.querySelectorAll('.checkbox-group input:checked')).map(cb => cb.parentElement.textContent.trim()),
+                priceRange: {
+                    min: minPriceInput.value,
+                    max: maxPriceInput.value
+                },
+                bhkType: Array.from(document.querySelectorAll('.option-button.selected')).map(btn => btn.textContent),
+                amenities: Array.from(document.querySelectorAll('.amenities-grid input:checked')).map(cb => cb.nextElementSibling.textContent),
+                furnishing: Array.from(document.querySelectorAll('.option-button.selected')).map(btn => btn.textContent),
+                availability: document.querySelector('.date-input').value
+            };
+            console.log('Applied Filters:', filters);
+        });
+    </script>
+    </div>
+</body>
+</html>

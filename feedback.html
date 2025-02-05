@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback Page</title>
+  <link rel="stylesheet" href="feedback.css">
+</head>
+<body>
+  <div class="feedback-container">
+    <h2>We Value Your Feedback</h2>
+    
+    <!-- Star Rating -->
+    <div class="star-rating">
+      <label>Rate Us:</label>
+      <div class="stars">
+        <span data-value="1">&#9733;</span>
+        <span data-value="2">&#9733;</span>
+        <span data-value="3">&#9733;</span>
+        <span data-value="4">&#9733;</span>
+        <span data-value="5">&#9733;</span>
+      </div>
+    </div>
+
+    <!-- Feedback Text Area -->
+    <div class="feedback-text">
+      <label for="feedback">Your Feedback:</label>
+      <textarea id="feedback" placeholder="Write your feedback here..."></textarea>
+    </div>
+
+    <!-- Submit Button -->
+    <button onclick="submitFeedback()">Submit Feedback</button>
+
+    <!-- Thank You Message -->
+    <div id="thankYouMessage" class="hidden">
+      <p>Thank you for your feedback!</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
