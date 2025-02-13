@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Property</title>
+    <link rel="stylesheet" href="addmyproperty.css">
+</head>
+<body>
+    <div class="top-section">
+        <div class="main-heading">
+            <button class="back-button" onclick="goBack()">  Back</button>
+            <h1><b>Welcome Lessor</b></h1>
+        <div class="paragraph">
+            <p>Where you can add more properties</p>
+        </div>
+        </div>
+    </div>
+    <div class="property-form-container">
+        <h2>Add Property</h2>
+        <form id="propertyForm" enctype="multipart/form-data">
+            <!-- Property Details -->
+            <div class="form-section">
+                <h3>Property Details</h3>
+                <label for="propertyName">Property Name:</label>
+                <input type="text" id="propertyName" name="propertyName" required>
+
+                <label for="propertyLocation">Location:</label>
+                <input type="text" id="propertyLocation" name="propertyLocation" required>
+
+                <label for="propertyType">Property Type:</label>
+                <select id="propertyType" name="propertyType" required>
+                    <option value="house">House</option>
+                    <option value="flat">Flat</option>
+                    <option value="apartment">Apartment</option>
+                    <option value="villa">Villa</option>
+                </select>
+
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" required>
+
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+            </div>
+
+            <!-- Image Upload Section -->
+            <div class="form-section">
+                <h3>Upload Images</h3>
+                <p>You can upload up to 10 images of the property.</p>
+                <input type="file" id="propertyImages" name="propertyImages[]" multiple accept="image/*" required>
+                <div id="imagePreview"></div>
+            </div>
+
+            <button type="submit">Submit Property</button>
+        </form>
+    </div>
+
+    <script src="addmyproperty.js"></script>
+</body>
+</html>

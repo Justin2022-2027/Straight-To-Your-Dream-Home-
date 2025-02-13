@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Straight To Your Dream Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+        .back-button {
+            display: flex;
+            padding: 10px 10px;
+            font-size: 16px;
+            color: white;
+            background-color: #102cc9;
+            border: none;
+            border-radius: 4px;
+            justify-content: flex-start;
+            cursor: pointer;
+            position: absolute;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+        header {
+            background-color: #3b96ca;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        header p{
+            font-style: italic;
+            font-size: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .container h1 {
+            color: rgb(65, 145, 199);
+            font-size: 30px;
+            margin-bottom: 10px;
+            
+        }
+
+        .container h2 {
+            color: rgb(65, 145, 199);
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+
+        p{
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .team {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .team-member h3 {
+            font-size: 1.2rem;
+            margin: 5px 0;
+            color: #46a0ca;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #3f9ec4;
+            color: white;
+            margin-top: 20px;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1><b>About Us</b></h1>
+        <button class="back-button" onclick="goBack()">  Back</button>
+        <p>Know more about us</p>
+    </header>
+
+    <div class="container">
+        <h1>Welcome to Straight To Your Dream Home</h1>
+        <p><i>Straight To Your Dream Home</i>, we are passionate about helping you find the perfect home that
+            matches your dreams. Our mission is to make the home-buying process seamless, transparent, and enjoyable. We
+            are committed to connecting buyers and sellers with the best opportunities in the real estate market.
+        </p>
+
+        <p>With years of experience in the industry, we pride ourselves on delivering top-notch services, ensuring that
+            you receive the support and guidance you need at every step of your journey. From browsing listings to
+            closing deals, we aim to exceed your expectations.</p>
+
+        <h2>Why Choose Us?</h2>
+        <p>We understand that finding a dream home is more than just a transaction; it's a significant life decision.
+            That's why we focus on building lasting relationships with our clients based on trust and integrity. Choose
+            us for our expertise, dedication, and unwavering commitment to your satisfaction.</p>
+    </div>
+    <footer>
+        <p>&copy; Straight To Your Dream Home </p>
+    </footer>
+</body>
+</html>
